@@ -23,7 +23,6 @@ export class TableListComponent implements OnInit {
     this.dataCovidService.getAllData()
       .toPromise()
       .then(response => this.dataCovid = response)
-      .then(response => console.log(response))
   }
 
 }
