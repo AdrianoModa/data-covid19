@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="float-left">
-        <img class="img-fluid img-covid-main" src="../assets/img/logo-color-sm.png" alt="logo-covid19">
+        <a href="/"><img class="img-fluid img-covid-main" src="../assets/img/logo-color-sm.png" alt="logo-covid19"></a>
     </div>
     <div class="container">
         <table class="table table-dark">
@@ -13,12 +13,12 @@
                 <th>Total Recovered</th>
             </thead>
             <tbody>
-                <td>{{ dataCovid.Global.NewConfirmed | number }}</td>
-                <td>{{ dataCovid.Global.TotalConfirmed | number }}</td>
-                <td>{{ dataCovid.Global.NewDeaths | number }}</td>
-                <td>{{ dataCovid.Global.TotalDeaths | number }}</td>
-                <td>{{ dataCovid.Global.NewRecovered | number }}</td>
-                <td>{{ dataCovid.Global.TotalRecovered | number }}</td>
+                <td>{{ newConfirmed | number }}</td>
+                <td>{{ totalConfirmed | number }}</td>
+                <td>{{ newDeaths | number }}</td>
+                <td>{{ totalDeaths | number }}</td>
+                <td>{{ newRecovered | number }}</td>
+                <td>{{ totalRecovered | number }}</td>
             </tbody>
         </table>
     </div>
