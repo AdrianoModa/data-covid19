@@ -21,11 +21,11 @@ export class TableListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.listCoutriesData()
+    this.listCountriesData()
     this.listGlobalData()
   }
 
-  listCoutriesData(){
+  listCountriesData(){
     this.dataCovidService.getAllData()
       .toPromise()
       .then(response => this.dataCovidCountries = response.Countries)
