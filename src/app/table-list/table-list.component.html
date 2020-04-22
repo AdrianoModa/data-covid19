@@ -13,12 +13,12 @@
                 <th>Total Recovered</th>
             </thead>
             <tbody>
-                <td>{{ dataCovidGlobal.NewConfirmed | number }}</td>
-                <td>{{ dataCovidGlobal.TotalConfirmed | number }}</td>
-                <td>{{ dataCovidGlobal.NewDeaths | number }}</td>
-                <td>{{ dataCovidGlobal.TotalDeaths | number }}</td>
-                <td>{{ dataCovidGlobal.NewRecovered | number }}</td>
-                <td>{{ dataCovidGlobal.TotalRecovered | number }}</td>
+                <td>{{ dataCovid.Global.NewConfirmed | number }}</td>
+                <td>{{ dataCovid.Global.TotalConfirmed | number }}</td>
+                <td>{{ dataCovid.Global.NewDeaths | number }}</td>
+                <td>{{ dataCovid.Global.TotalDeaths | number }}</td>
+                <td>{{ dataCovid.Global.NewRecovered | number }}</td>
+                <td>{{ dataCovid.Global.TotalRecovered | number }}</td>
             </tbody>
         </table>
     </div>
@@ -45,7 +45,7 @@
             <th scope="col">Date</th>
         </thead>
         <tbody>
-            <tr *ngFor="let data of dataCovidCountries | dataCovidFilter: searchTerm">
+            <tr *ngFor="let data of dataCovid.Countries | dataCovidFilter: searchTerm">
                 <td>{{ data.Country }}</td>
                 <td>{{ data.CountryCode }}</td>
                 <td>{{ data.NewConfirmed }}</td>

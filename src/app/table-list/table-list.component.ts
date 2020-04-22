@@ -12,28 +12,21 @@ export class TableListComponent implements OnInit {
 
   searchTerm: string
 
-  dataCovidCountries: Global[] = []
-  dataCovidGlobal: Global[] = []
-  dataCovidCountry: Country[] = []
+  dataCovid: Global[] = []
 
   constructor(
     private dataCovidService: DataCovidService
   ) { }
 
   ngOnInit() {
-    this.listCountriesData()
-    this.listGlobalData()
+    this.listData()
   }
 
-  listCountriesData(){
+  listData(){
     this.dataCovidService.getAllData()
       .toPromise()
-      .then(response => this.dataCovidCountries = response.Countries)
+      .then(response => this.dataCovid = response)
   }
 
-  listGlobalData(){
-    this.dataCovidService.getAllData()
-      .toPromise()
-      .then(response => this.dataCovidGlobal = response.Global)
-  }
+  
 }
