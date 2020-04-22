@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataCovidService } from '../shared/service/data-covid.service';
 import { Global } from '../shared/model/global';
+import { Country } from '../shared/model/country';
 
 @Component({
   selector: 'app-table-list',
@@ -9,20 +10,30 @@ import { Global } from '../shared/model/global';
 })
 export class TableListComponent implements OnInit {
 
-  dataCovid: Global[] = []
+  searchTerm: string
+
+  dataCovidCountries: Global[] = []
+  dataCovidGlobal: Global[] = []
+  dataCovidCountry: Country[] = []
 
   constructor(
     private dataCovidService: DataCovidService
   ) { }
 
   ngOnInit() {
-    this.listarDados()
+    this.listCoutriesData()
+    this.listGlobalData()
   }
 
-  listarDados(){
+  listCoutriesData(){
     this.dataCovidService.getAllData()
       .toPromise()
-      .then(response => this.dataCovid = response)
+      .then(response => this.dataCovidCountries = response.Countries)
   }
 
+  listGlobalData(){
+    this.dataCovidService.getAllData()
+      .toPromise()
+      .then(response => this.dataCovidGlobal = response.Global)
+  }
 }

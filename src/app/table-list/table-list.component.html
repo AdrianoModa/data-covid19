@@ -13,16 +13,25 @@
                 <th>Total Recovered</th>
             </thead>
             <tbody>
-                <td>{{ dataCovid.Global.NewConfirmed | number }}</td>
-                <td>{{ dataCovid.Global.TotalConfirmed | number }}</td>
-                <td>{{ dataCovid.Global.NewDeaths | number }}</td>
-                <td>{{ dataCovid.Global.TotalDeaths | number }}</td>
-                <td>{{ dataCovid.Global.NewRecovered | number }}</td>
-                <td>{{ dataCovid.Global.TotalRecovered | number }}</td>
+                <td>{{ dataCovidGlobal.NewConfirmed | number }}</td>
+                <td>{{ dataCovidGlobal.TotalConfirmed | number }}</td>
+                <td>{{ dataCovidGlobal.NewDeaths | number }}</td>
+                <td>{{ dataCovidGlobal.TotalDeaths | number }}</td>
+                <td>{{ dataCovidGlobal.NewRecovered | number }}</td>
+                <td>{{ dataCovidGlobal.TotalRecovered | number }}</td>
             </tbody>
         </table>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="busca" placeholder="Search country" [(ngModel)]="searchTerm">
+                </div>
+            </div>
+        </div>
+    </div>
     <table class="table table-sm table-hovered">
         <thead class="thead-dark">
             <th scope="col">Country</th>
@@ -36,7 +45,7 @@
             <th scope="col">Date</th>
         </thead>
         <tbody>
-            <tr *ngFor="let data of dataCovid.Countries; let i=index">
+            <tr *ngFor="let data of dataCovidCountries | dataCovidFilter: searchTerm">
                 <td>{{ data.Country }}</td>
                 <td>{{ data.CountryCode }}</td>
                 <td>{{ data.NewConfirmed }}</td>

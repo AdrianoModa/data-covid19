@@ -8,5 +8,5 @@ export class Global {
     TotalDeaths: number
     NewRecovered: number
     TotalRecovered: number
-    Country: Country = new Country()
+    Country: string
 }
