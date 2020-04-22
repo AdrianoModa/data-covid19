@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataCovidService } from '../shared/service/data-covid.service';
 import { Global } from '../shared/model/global';
-import { Country } from '../shared/model/country';
 
 @Component({
   selector: 'app-table-list',
@@ -9,17 +8,20 @@ import { Country } from '../shared/model/country';
   styleUrls: ['./table-list.component.css']
 })
 export class TableListComponent implements OnInit {
+  
+  @Input('class') colorLightTable: string = 'table table-sm table-light'
+  @Input('class') colorTableGlobal: string = 'table table-dark'
 
-  searchTerm: string
+  searchTerm: string 
 
   dataCovid: Global[] = []
   dataCovidGlobal: Global[] = []
-  newConfirmed: number;
-  totalConfirmed: number;
-  newDeaths: number;
-  totalDeaths: number;
-  newRecovered: number;
-  totalRecovered: number;
+  newConfirmed: number
+  totalConfirmed: number
+  newDeaths: number
+  totalDeaths: number
+  newRecovered: number
+  totalRecovered: number
 
 
   constructor(
@@ -55,6 +57,16 @@ export class TableListComponent implements OnInit {
         this.newRecovered = this.dataCovidGlobal['NewRecovered'],
         this.totalRecovered = this.dataCovidGlobal['TotalRecovered']
       })
+  }
+
+  darkModeTable(){
+    this.colorLightTable = 'table table-sm table-hover table-dark'
+    this.colorTableGlobal = 'table table-dark'
+  }
+
+  lightModeTable(){
+    this.colorLightTable = 'table table-sm table-hover table-light'
+    this.colorTableGlobal = 'table table-light'
   }
 
 
